@@ -55,6 +55,10 @@ const mockData = {
         id: 1,
         operationName: 'Cut Steel',
         workCenterName: 'Cutting',
+        productName: 'Steel Frame Assembly',
+        quantity: 5,
+        expectedDuration: 60,
+        realDuration: 55,
         plannedDuration: 60,
         actualDuration: 55,
         status: 'Done'
@@ -63,12 +67,73 @@ const mockData = {
         id: 2,
         operationName: 'Weld Frame',
         workCenterName: 'Assembly',
+        productName: 'Steel Frame Assembly',
+        quantity: 5,
+        expectedDuration: 80,
+        realDuration: 65,
         plannedDuration: 80,
         actualDuration: 65,
         status: 'In-Progress'
       }
     ]
   },
+  allWorkOrders: [
+    {
+      id: 1,
+      operationName: 'Cut Steel',
+      workCenterName: 'Cutting',
+      productName: 'Steel Frame Assembly',
+      quantity: 5,
+      expectedDuration: 60,
+      realDuration: 55,
+      status: 'Done',
+      moNumber: 'MO-000001'
+    },
+    {
+      id: 2,
+      operationName: 'Weld Frame',
+      workCenterName: 'Assembly',
+      productName: 'Steel Frame Assembly',
+      quantity: 5,
+      expectedDuration: 80,
+      realDuration: 65,
+      status: 'In-Progress',
+      moNumber: 'MO-000001'
+    },
+    {
+      id: 3,
+      operationName: 'Assembly Operations',
+      workCenterName: 'Assembly',
+      productName: 'Dining Table',
+      quantity: 3,
+      expectedDuration: 120,
+      realDuration: 0,
+      status: 'To Do',
+      moNumber: 'MO-000001'
+    },
+    {
+      id: 4,
+      operationName: 'Quality Check',
+      workCenterName: 'Quality Control',
+      productName: 'Motor Housing',
+      quantity: 10,
+      expectedDuration: 45,
+      realDuration: 42,
+      status: 'Done',
+      moNumber: 'MO-000002'
+    },
+    {
+      id: 5,
+      operationName: 'Surface Treatment',
+      workCenterName: 'Painting',
+      productName: 'Motor Housing',
+      quantity: 10,
+      expectedDuration: 90,
+      realDuration: 0,
+      status: 'To Do',
+      moNumber: 'MO-000002'
+    }
+  ],
   bom: {
     1: [
       {
@@ -135,6 +200,10 @@ export const mockApiCall = (endpoint, method = 'GET', data = null) => {
 
         case '/mock/work-centers':
           resolve({ data: mockData.workCenters });
+          break;
+
+        case '/mock/work-orders':
+          resolve({ data: mockData.allWorkOrders });
           break;
 
         case '/mock/stock-transactions':

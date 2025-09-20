@@ -2,6 +2,7 @@
 import { manufacturingOrdersData, getManufacturingOrdersByStatus, getManufacturingOrderById } from '../data/manufacturingOrders';
 import { productsData, getProductById } from '../data/products';
 import { workCentersData, getWorkCenterById } from '../data/workCenters';
+import { allWorkOrdersData, getWorkOrdersByMO } from '../data/workOrders';
 import { calculateKPIs } from '../data/kpiData';
 
 // Mock API responses
@@ -32,12 +33,20 @@ export const mockApiCall = (endpoint: string, method = 'GET', data: any = null) 
           resolve({ data: workCentersData });
           break;
 
+        case '/mock/work-orders':
+          resolve({ data: allWorkOrdersData });
+          break;
+
         default:
           if (endpoint.includes('/work-orders')) {
             const moId = endpoint.match(/manufacturing-orders\/(\d+)/)?.[1];
-            resolve({ data: [] }); // Placeholder for work orders
+            if (moId) {
+              const moNumber = `MO-${String(moId).padStart(6, '0')}`;
+              resolve({ data: getWorkOrdersByMO(moNumber) });
+            } else {
+              resolve({ data: [] });
+            }
           } else if (endpoint.includes('/bom')) {
-            const moId = endpoint.match(/manufacturing-orders\/(\d+)/)?.[1];
             resolve({ data: [] }); // Placeholder for BOM
           } else if (endpoint.includes('manufacturing-orders/')) {
             const id = endpoint.match(/manufacturing-orders\/(\d+)$/)?.[1];

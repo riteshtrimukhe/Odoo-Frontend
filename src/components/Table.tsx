@@ -81,15 +81,21 @@ export const Table: React.FC<TableProps> = ({ columns, dataEndpoint, rowClick, d
       const statusColors = {
         'Done': 'bg-green-100 text-green-800',
         'In-Progress': 'bg-blue-100 text-blue-800',
+        'To Do': 'bg-gray-100 text-gray-800',
         'To Close': 'bg-orange-100 text-orange-800',
         'Draft': 'bg-gray-100 text-gray-800',
-        'Confirmed': 'bg-purple-100 text-purple-800'
+        'Confirmed': 'bg-purple-100 text-purple-800',
+        'Cancelled': 'bg-red-100 text-red-800'
       };
       return (
         <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[value as keyof typeof statusColors] || 'bg-gray-100 text-gray-800'}`}>
           {value}
         </span>
       );
+    }
+    
+    if (column.key === 'expectedDuration' || column.key === 'realDuration') {
+      return value ? `${value} min` : '-';
     }
     
     if (column.key === 'dueDate' || column.key === 'scheduleDate') {

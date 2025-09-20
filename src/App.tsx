@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './hooks/useAuth';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -10,6 +9,7 @@ import { ManufacturingOrderDetail } from './pages/ManufacturingOrderDetail';
 import { WorkCenterList } from './pages/WorkCenterList';
 import { StockLedger } from './pages/StockLedger';
 import { Reports } from './pages/Reports';
+import { WorkOrders } from './pages/WorkOrders';
 
 function App() {
   return (
@@ -41,6 +41,11 @@ function App() {
           <Route path="/work-centers" element={
             <ProtectedRoute>
               <WorkCenterList />
+            </ProtectedRoute>
+          } />
+          <Route path="/work-orders" element={
+            <ProtectedRoute>
+              <WorkOrders />
             </ProtectedRoute>
           } />
           <Route path="/stock-ledger" element={

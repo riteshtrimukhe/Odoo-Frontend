@@ -9,6 +9,7 @@ import {
   Settings, 
   BarChart3, 
   Warehouse,
+  Wrench,
   LogOut,
   User
 } from 'lucide-react';
@@ -17,6 +18,7 @@ const menuItems = [
   { path: '/', icon: Home, label: 'Dashboard' },
   { path: '/manufacturing-orders', icon: Package, label: 'Manufacturing Orders' },
   { path: '/work-centers', icon: Settings, label: 'Work Centers' },
+  { path: '/work-orders', icon: Wrench, label: 'Work Orders' },
   { path: '/stock-ledger', icon: Warehouse, label: 'Stock Ledger' },
   { path: '/reports', icon: BarChart3, label: 'Reports' },
 ];

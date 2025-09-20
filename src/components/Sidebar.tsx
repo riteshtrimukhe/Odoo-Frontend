@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { User, Home, Package, Settings, FileText, BarChart3, LogOut, Wrench, Clipboard } from 'lucide-react';
+import { User, Package, Settings, FileText, BarChart3, LogOut, Wrench, Clipboard } from 'lucide-react';
 
 export const Sidebar: React.FC = () => {
   const navigate = useNavigate();
