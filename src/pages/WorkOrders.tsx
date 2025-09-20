@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Table } from '../components/Table';
 import { Filters } from '../components/Filters';
 import { Sidebar } from '../components/Sidebar';
-import { Search, User } from 'lucide-react';
+import { ProfileDropdown } from '../components/ProfileDropdown';
+import { Search } from 'lucide-react';
 import { mockApiCall } from '../services/mockApi';
 
 export const WorkOrders: React.FC = () => {
@@ -99,16 +100,13 @@ export const WorkOrders: React.FC = () => {
             </div>
             
             <div className="flex items-center gap-2">
-              <User size={20} className="text-gray-600" />
+              <ProfileDropdown />
             </div>
           </div>
         </div>
 
         {/* Work Orders Content */}
         <div className="flex-1 p-6 bg-white">
-          {/* Header Section */}
-          
-
           {/* Search Bar */}
           <div className="relative mb-6">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Search, User } from 'lucide-react';
+import { Plus, Search } from 'lucide-react';
 import { getManufacturingOrdersByStatus } from '../data/manufacturingOrders';
 import { getKPIByStatus } from '../data/kpiData';
 import { Sidebar } from '../components/Sidebar';
+import { ProfileDropdown } from '../components/ProfileDropdown';
 
 type StatusTab = 'All' | 'Draft' | 'Confirmed' | 'In-Progress' | 'To Close' | 'Not Assigned' | 'Late';
 
@@ -48,7 +49,7 @@ export const Dashboard: React.FC = () => {
             </div>
             
             <div className="flex items-center gap-2">
-              <User size={20} className="text-gray-600" />
+              <ProfileDropdown />
             </div>
           </div>
         </div>

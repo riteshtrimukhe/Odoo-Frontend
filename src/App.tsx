@@ -9,9 +9,8 @@ import { ManufacturingOrderDetail } from './pages/ManufacturingOrderDetail';
 import { WorkCenterList } from './pages/WorkCenterList';
 import { StockLedger } from './pages/StockLedger';
 import { Reports } from './pages/Reports';
-
 import { WorkOrders } from './pages/WorkOrders';
-
+import { WorkOrdersList } from './pages/WorkOrdersList';
 import { BillsOfMaterials } from './pages/BillsOfMaterials';
 import { BillOfMaterialForm } from './pages/BillOfMaterialForm';
 
@@ -49,7 +48,7 @@ function App() {
           } />
           <Route path="/work-orders" element={
             <ProtectedRoute>
-              <WorkOrders />
+              <WorkOrdersList />
             </ProtectedRoute>
           } />
           <Route path="/stock-ledger" element={
@@ -60,6 +59,11 @@ function App() {
           <Route path="/reports" element={
             <ProtectedRoute>
               <Reports />
+            </ProtectedRoute>
+          } />
+          <Route path="/my-reports" element={
+            <ProtectedRoute>
+              <WorkOrders />
             </ProtectedRoute>
           } />
           <Route path="/bills-of-materials" element={
