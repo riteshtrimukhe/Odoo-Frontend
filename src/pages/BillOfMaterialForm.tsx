@@ -136,7 +136,6 @@ export const BillOfMaterialForm: React.FC = () => {
                       </option>
                     ))}
                   </select>
-                  <p className="text-xs text-gray-500 mt-1">Many2one field, fetch from stock ledger</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -181,7 +180,6 @@ export const BillOfMaterialForm: React.FC = () => {
                     maxLength={8}
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Text field, allow no more than 8 characters</p>
                 </div>
               </div>
             </div>
@@ -250,7 +248,6 @@ export const BillOfMaterialForm: React.FC = () => {
                               min="0"
                               className="w-full px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-black"
                             />
-                            <p className="text-xs text-gray-500 mt-1">Numeric field, float value &gt; 0</p>
                           </td>
                           <td className="p-3">
                             <select

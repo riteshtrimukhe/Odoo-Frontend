@@ -8,6 +8,7 @@ import { ManufacturingOrderForm } from './pages/ManufacturingOrderForm';
 import { ManufacturingOrderDetail } from './pages/ManufacturingOrderDetail';
 import { WorkCenterList } from './pages/WorkCenterList';
 import { StockLedger } from './pages/StockLedger';
+import { StockLedgerForm } from './pages/StockLedgerForm';
 import { Reports } from './pages/Reports';
 import { WorkOrders } from './pages/WorkOrders';
 import { WorkOrdersList } from './pages/WorkOrdersList';
@@ -54,6 +55,11 @@ function App() {
           <Route path="/stock-ledger" element={
             <ProtectedRoute>
               <StockLedger />
+            </ProtectedRoute>
+          } />
+          <Route path="/stock-ledger/new" element={
+            <ProtectedRoute>
+              <StockLedgerForm />
             </ProtectedRoute>
           } />
           <Route path="/reports" element={
