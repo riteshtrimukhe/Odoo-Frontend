@@ -9,7 +9,11 @@ import { ManufacturingOrderDetail } from './pages/ManufacturingOrderDetail';
 import { WorkCenterList } from './pages/WorkCenterList';
 import { StockLedger } from './pages/StockLedger';
 import { Reports } from './pages/Reports';
+
 import { WorkOrders } from './pages/WorkOrders';
+
+import { BillsOfMaterials } from './pages/BillsOfMaterials';
+import { BillOfMaterialForm } from './pages/BillOfMaterialForm';
 
 function App() {
   return (
@@ -56,6 +60,16 @@ function App() {
           <Route path="/reports" element={
             <ProtectedRoute>
               <Reports />
+            </ProtectedRoute>
+          } />
+          <Route path="/bills-of-materials" element={
+            <ProtectedRoute>
+              <BillsOfMaterials />
+            </ProtectedRoute>
+          } />
+          <Route path="/bills-of-materials/new" element={
+            <ProtectedRoute>
+              <BillOfMaterialForm />
             </ProtectedRoute>
           } />
           <Route path="*" element={<Navigate to="/" replace />} />
