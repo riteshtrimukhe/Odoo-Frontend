@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from '../components/Table';
+import { AppLayout } from '../components/AppLayout';
 
 export const WorkCenterList: React.FC = () => {
   const columns = [
@@ -9,16 +10,17 @@ export const WorkCenterList: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-black mb-2">Work Centers</h1>
-        <p className="text-gray-600">Monitor work center capacity and current load</p>
+    <AppLayout title="Work Centers">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <p className="text-gray-600">Monitor work center capacity and current load</p>
+        </div>
+        
+        <Table
+          columns={columns}
+          dataEndpoint="/mock/work-centers"
+        />
       </div>
-      
-      <Table
-        columns={columns}
-        dataEndpoint="/mock/work-centers"
-      />
-    </div>
+    </AppLayout>
   );
 };

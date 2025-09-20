@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from '../components/Table';
+import { AppLayout } from '../components/AppLayout';
 
 export const StockLedger: React.FC = () => {
   const columns = [
@@ -10,16 +11,17 @@ export const StockLedger: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-black mb-2">Stock Ledger</h1>
-        <p className="text-gray-600">Track all inventory movements and balances</p>
+    <AppLayout title="Stock Ledger">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <p className="text-gray-600">Track all inventory movements and balances</p>
+        </div>
+        
+        <Table
+          columns={columns}
+          dataEndpoint="/mock/stock-transactions"
+        />
       </div>
-      
-      <Table
-        columns={columns}
-        dataEndpoint="/mock/stock-transactions"
-      />
-    </div>
+    </AppLayout>
   );
 };

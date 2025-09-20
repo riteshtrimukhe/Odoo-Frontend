@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Search, User, Home, Package, Settings, FileText, BarChart3, LogOut } from 'lucide-react';
+import { Plus, Search, User } from 'lucide-react';
 import { getManufacturingOrdersByStatus } from '../data/manufacturingOrders';
 import { getKPIByStatus } from '../data/kpiData';
+import { Sidebar } from '../components/Sidebar';
 
 type StatusTab = 'All' | 'Draft' | 'Confirmed' | 'In-Progress' | 'To Close' | 'Not Assigned' | 'Late';
 
@@ -11,14 +12,6 @@ export const Dashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<StatusTab>('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [manufacturingOrders, setManufacturingOrders] = useState<any[]>([]);
-
-  const sidebarItems = [
-    { name: 'Dashboard', path: '/', icon: Home },
-    { name: 'Manufacturing Orders', path: '/', icon: Package },
-    { name: 'Work Centers', path: '/work-centers', icon: Settings },
-    { name: 'Stock Ledger', path: '/stock-ledger', icon: FileText },
-    { name: 'Reports', path: '/reports', icon: BarChart3 }
-  ];
 
   const statusTabs: StatusTab[] = ['All', 'Draft', 'Confirmed', 'In-Progress', 'To Close', 'Not Assigned', 'Late'];
 
@@ -42,46 +35,7 @@ export const Dashboard: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      {/* Black Sidebar */}
-      <div className="w-64 bg-black text-white flex flex-col">
-        {/* Logo */}
-        <div className="p-6 border-b border-gray-700">
-         <img src="/ordio-logo-white.gif" alt="Ordio" className="" />
-        </div>
-        
-        {/* Navigation Items */}
-        <nav className="flex-1 p-4">
-          {sidebarItems.map((item, index) => {
-            const IconComponent = item.icon;
-            return (
-              <div
-                key={index}
-                onClick={() => navigate(item.path)}
-                className={`flex items-center gap-3 p-3 mb-2 rounded cursor-pointer transition-colors ${
-                  item.name === 'Dashboard' 
-                    ? 'bg-gray-800 text-white' 
-                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                }`}
-              >
-                <IconComponent size={20} />
-                <span>{item.name}</span>
-              </div>
-            );
-          })}
-        </nav>
-        
-        {/* Bottom Section */}
-        <div className="p-4 border-t border-gray-700">
-          <div className="flex items-center gap-3 p-3 text-gray-300">
-            <User size={20} />
-            <span className="text-sm">Administrator</span>
-          </div>
-          <div className="flex items-center gap-3 p-3 text-gray-300 hover:bg-gray-800 hover:text-white rounded cursor-pointer transition-colors">
-            <LogOut size={20} />
-            <span>Logout</span>
-          </div>
-        </div>
-      </div>
+      <Sidebar />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">

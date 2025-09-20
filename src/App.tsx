@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './hooks/useAuth';
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { Layout } from './components/Layout';
 import { Login } from './pages/Login';
 import { Signup } from './pages/Signup';
 import { Dashboard } from './pages/Dashboard';
@@ -31,37 +30,27 @@ function App() {
           } />
           <Route path="/manufacturing-orders/new" element={
             <ProtectedRoute>
-              <Layout>
-                <ManufacturingOrderForm />
-              </Layout>
+              <ManufacturingOrderForm />
             </ProtectedRoute>
           } />
           <Route path="/manufacturing-orders/:id" element={
             <ProtectedRoute>
-              <Layout>
-                <ManufacturingOrderDetail />
-              </Layout>
+              <ManufacturingOrderDetail />
             </ProtectedRoute>
           } />
           <Route path="/work-centers" element={
             <ProtectedRoute>
-              <Layout>
-                <WorkCenterList />
-              </Layout>
+              <WorkCenterList />
             </ProtectedRoute>
           } />
           <Route path="/stock-ledger" element={
             <ProtectedRoute>
-              <Layout>
-                <StockLedger />
-              </Layout>
+              <StockLedger />
             </ProtectedRoute>
           } />
           <Route path="/reports" element={
             <ProtectedRoute>
-              <Layout>
-                <Reports />
-              </Layout>
+              <Reports />
             </ProtectedRoute>
           } />
           <Route path="*" element={<Navigate to="/" replace />} />
